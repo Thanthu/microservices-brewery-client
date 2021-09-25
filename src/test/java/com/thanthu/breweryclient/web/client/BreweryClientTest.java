@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.thanthu.breweryclient.web.model.BeerDto;
+import com.thanthu.breweryclient.web.model.CustomerDto;
 
 @SpringBootTest
 class BreweryClientTest {
@@ -49,6 +50,41 @@ class BreweryClientTest {
 
 		client.updateBeer(UUID.randomUUID(), beerDto);
 
+	}
+
+	@Test
+	void getCustomerById() {
+		CustomerDto dto = client.getCustomerById(UUID.randomUUID());
+
+		assertNotNull(dto);
+
+	}
+
+	@Test
+	void testSaveNewCustomer() {
+		// given
+		CustomerDto customerDto = CustomerDto.builder().name("Joe").build();
+
+		URI uri = client.saveNewCustomer(customerDto);
+
+		assertNotNull(uri);
+
+		System.out.println(uri.toString());
+
+	}
+
+	@Test
+	void testUpdateCustomer() {
+		// given
+		CustomerDto customerDto = CustomerDto.builder().name("Jim").build();
+
+		client.updateCustomer(UUID.randomUUID(), customerDto);
+
+	}
+
+	@Test
+	void testDeleteCustomer() {
+		client.deleteCustomer(UUID.randomUUID());
 	}
 
 	@Test
