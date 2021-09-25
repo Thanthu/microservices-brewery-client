@@ -7,34 +7,34 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 @ConfigurationProperties(prefix = "tun.http")
 public class BlockingRestTemplateConfig {
 
-	private final Integer maxtotalconnections;
-	private final Integer defaultmaxtotalconnections;
-	private final Integer connectionrequesttimeout;
-	private final Integer sockettimeout;
+	private final Integer maxTotalConnections;
+	private final Integer defaultMaxTotalConnections;
+	private final Integer connectionRequestTimeout;
+	private final Integer socketTimeout;
 
-	public BlockingRestTemplateConfig(Integer maxtotalconnections, Integer defaultmaxtotalconnections,
-			Integer connectionrequesttimeout, Integer sockettimeout) {
-		this.maxtotalconnections = maxtotalconnections;
-		this.defaultmaxtotalconnections = defaultmaxtotalconnections;
-		this.connectionrequesttimeout = connectionrequesttimeout;
-		this.sockettimeout = sockettimeout;
+	public BlockingRestTemplateConfig(Integer maxTotalConnections, Integer defaultMaxTotalConnections,
+			Integer connectionRequestTimeout, Integer socketTimeout) {
+		super();
+		this.maxTotalConnections = maxTotalConnections;
+		this.defaultMaxTotalConnections = defaultMaxTotalConnections;
+		this.connectionRequestTimeout = connectionRequestTimeout;
+		this.socketTimeout = socketTimeout;
 	}
 
-	public Integer getMaxtotalconnections() {
-		return maxtotalconnections;
+	public Integer getMaxTotalConnections() {
+		return maxTotalConnections;
 	}
 
-	public Integer getDefaultmaxtotalconnections() {
-		return defaultmaxtotalconnections;
+	public Integer getDefaultMaxTotalConnections() {
+		return defaultMaxTotalConnections;
 	}
 
-	public Integer getConnectionrequesttimeout() {
-		return connectionrequesttimeout;
+	public Integer getConnectionRequestTimeout() {
+		return connectionRequestTimeout;
 	}
 
-	public Integer getSockettimeout() {
-		return sockettimeout;
+	public Integer getSocketTimeout() {
+		return socketTimeout;
 	}
-	
 
 }

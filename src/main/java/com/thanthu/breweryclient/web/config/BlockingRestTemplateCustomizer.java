@@ -24,13 +24,13 @@ public class BlockingRestTemplateCustomizer implements RestTemplateCustomizer {
 
 	public ClientHttpRequestFactory clientHttpRequestFactory(){
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
-        connectionManager.setMaxTotal(blockingRestTemplateConfig.getMaxtotalconnections());
-        connectionManager.setDefaultMaxPerRoute(blockingRestTemplateConfig.getDefaultmaxtotalconnections());
+        connectionManager.setMaxTotal(blockingRestTemplateConfig.getMaxTotalConnections());
+        connectionManager.setDefaultMaxPerRoute(blockingRestTemplateConfig.getDefaultMaxTotalConnections());
 
         RequestConfig requestConfig = RequestConfig
                 .custom()
-                .setConnectionRequestTimeout(blockingRestTemplateConfig.getConnectionrequesttimeout())
-                .setSocketTimeout(blockingRestTemplateConfig.getSockettimeout())
+                .setConnectionRequestTimeout(blockingRestTemplateConfig.getConnectionRequestTimeout())
+                .setSocketTimeout(blockingRestTemplateConfig.getSocketTimeout())
                 .build();
 
         CloseableHttpClient httpClient = HttpClients
